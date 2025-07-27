@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors'); // ✅ Add this line
 const { sequelize, testDbConnection } = require('./config/database');
 const exportRoutes = require('./routes/export.routes');
 
@@ -10,11 +11,12 @@ const InventoryMovement = require('./models/inventoryMovement.model');
 // Import routes
 const userRoutes = require('./routes/user.routes');
 const productRoutes = require('./routes/product.routes');
-const logRoutes = require('./routes/log.routes'); // <-- Import new log routes
+const logRoutes = require('./routes/log.routes');
 
 const app = express();
 const PORT = 5001;
 
+app.use(cors()); // ✅ Enable CORS here (this line must be before the routes)
 app.use(express.json());
 
 // --- Define Relationships ---
@@ -23,13 +25,12 @@ InventoryMovement.belongsTo(Product, { foreignKey: 'productId' });
 
 User.hasMany(InventoryMovement, { foreignKey: 'userId' });
 InventoryMovement.belongsTo(User, { foreignKey: 'userId' });
-// --------------------------
 
 // Use the routes
 app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
-app.use('/api/logs', logRoutes); // <-- Use new log routes
-app.use('/api/export', exportRoutes); 
+app.use('/api/logs', logRoutes);
+app.use('/api/export', exportRoutes);
 
 // Function to start the server
 const startServer = async () => {
