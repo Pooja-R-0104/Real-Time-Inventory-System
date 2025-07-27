@@ -1,13 +1,23 @@
 const { Sequelize } = require('sequelize');
-require('dotenv').config(); // This loads the .env file
+require('dotenv').config();
 
-// Create a new Sequelize instance and connect to the database
-const sequelize = new Sequelize(process.env.DATABASE_URL, {
+const dbConfig = {
   dialect: 'postgres',
-  logging: false, // Set to true to see SQL queries in the console
-});
+  logging: false,
+};
 
-// Test the database connection
+// Add SSL configuration only when in production
+if (process.env.NODE_ENV === 'production') {
+  dbConfig.dialectOptions = {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false, // Required for some cloud providers
+    },
+  };
+}
+
+const sequelize = new Sequelize(process.env.DATABASE_URL, dbConfig);
+
 const testDbConnection = async () => {
   try {
     await sequelize.authenticate();
@@ -17,5 +27,4 @@ const testDbConnection = async () => {
   }
 };
 
-// Export the sequelize instance and the test function
 module.exports = { sequelize, testDbConnection };
