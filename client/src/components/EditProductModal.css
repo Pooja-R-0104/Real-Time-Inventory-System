@@ -1,0 +1,74 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: var(--primary-bg-color);
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(10px);
+
+  /* --- ADD THESE TWO LINES --- */
+  max-height: 80vh; /* Set a maximum height (80% of the screen height) */
+  overflow-y: auto;   /* Allow vertical scrolling if the content is too tall */
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    color: var(--heading-color);
+}
+
+.modal-content form label {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.modal-content form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.modal-actions {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.modal-actions button {
+  padding: 10px 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--text-color);
+}
+
+.update-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+}
+.update-button:hover {
+    background-color: #218838;
+}

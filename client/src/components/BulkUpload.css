@@ -1,0 +1,38 @@
+.upload-container {
+    background-color: var(--primary-bg-color);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
+}
+
+.upload-container h3 {
+    margin-top: 0;
+    color: var(--heading-color);
+}
+
+.upload-container input {
+    margin-right: 1rem;
+    color: var(--text-color);
+}
+
+.upload-container button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #17a2b8;
+    color: white;
+    cursor: pointer;
+}
+
+.upload-container button:hover {
+    background-color: #138496;
+}
+
+.upload-container p {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
