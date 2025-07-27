@@ -1,9 +1,10 @@
-import axios from 'axios';
+import apiClient from './apiClient'; // <-- Import our configured apiClient
 
-const API_URL = '/api/users/';
+const API_URL = '/users/'; // We only need the path now
 
 const register = (name, email, password) => {
-  return axios.post(API_URL + 'register', {
+  // Use apiClient instead of axios
+  return apiClient.post(API_URL + 'register', {
     name,
     email,
     password,
@@ -11,12 +12,12 @@ const register = (name, email, password) => {
 };
 
 const login = async (email, password) => {
-  const response = await axios.post(API_URL + 'login', {
+  // Use apiClient instead of axios
+  const response = await apiClient.post(API_URL + 'login', {
     email,
     password,
   });
   if (response.data.token) {
-    // Save user and token to local storage
     localStorage.setItem('user', JSON.stringify(response.data.user));
     localStorage.setItem('token', response.data.token);
   }
