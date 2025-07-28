@@ -3,11 +3,6 @@
 A full-stack, feature-rich inventory management system designed for hackathon submission. This application provides a complete solution for businesses to manage products, track inventory movements, and receive real-time alerts, all wrapped in a polished, modern UI with a professional login system.
 
 ---
-## 📸 Live Demo Video
-
-*(After you record your video, upload it to YouTube or Loom and paste the link here)*
-
----
 ## ✨ Key Features
 
 ### Core Functionality
@@ -86,3 +81,43 @@ npm install
 # Start the React application
 npm start
 ```
+
+---
+## 🧪 Login Instructions
+
+> ⚠️ This system utilizes **Role-Based Access Control** — Admin and Staff users have distinct permissions and registration methods.
+
+### 🔐 Admin Access
+
+Admin accounts provide full control over the inventory system.
+
+* **Registration:** Admin accounts **must be registered via a backend API endpoint (e.g., using Postman)**. There is no direct frontend registration for Admin users for security reasons.
+* **Capabilities:** Once logged in, Admins can:
+    * **Add, edit, and delete** products.
+    * **Import/Export** product data and audit logs in bulk (CSV).
+    * Access and filter all **inventory movement logs**.
+    * View all **reports and interactive charts**.
+    * Receive **email and browser notifications** for low stock.
+
+🧾 Example Admin Credentials (used in the demo):
+```bash
+Email: debug.admin@test.com
+Password: DebugPassword123
+
+### 👤 Staff Access
+
+Staff accounts are designed for daily operational use with view-only permissions for sensitive actions.
+
+* **Registration:** Staff users can **register themselves directly from the frontend login page**.
+* **Capabilities:** Once logged in, Staff users can:
+    * **View** product listings and details.
+    * **View** reports, charts, and audit logs.
+    * Receive **browser notifications** for low stock.
+* **Restricted Actions:** Staff users **cannot**:
+    * **Add, edit, or delete** products.
+    * **Import or Export** data.
+
+🧾 Example Staff Credentials:
+```bash
+Email: example3@test.com
+Password: test12345
