@@ -103,7 +103,7 @@ Admin accounts provide full control over the inventory system.
 ```bash
 Email: debug.admin@test.com
 Password: DebugPassword123
-
+```
 ### 👤 Staff Access
 
 Staff accounts are designed for daily operational use with view-only permissions for sensitive actions.
@@ -121,3 +121,4 @@ Staff accounts are designed for daily operational use with view-only permissions
 ```bash
 Email: example3@test.com
 Password: test12345
+```
